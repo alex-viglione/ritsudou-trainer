@@ -7,6 +7,7 @@
 			<h2 class="subtitle">
 				A simple rhythm trainer &amp; more
 			</h2>
+			<nuxt-link to="/sound_test">To sound test</nuxt-link>
 		</div>
 	</div>
 	</div>
