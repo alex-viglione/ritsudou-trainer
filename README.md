@@ -1,22 +1,16 @@
-# ritsudou-trainer
+# 律動 ritsudou-trainer
 
-> A simple rhythm trainer &amp; more
+> A simple rhythm trainer &amp; more. <br>
+> Made it mostly because I wanted a simple app to practice with, instead of using pen and paper. How _modern_.
 
-## Build Setup
 
-``` bash
-# install dependencies
-$ npm install
+## Features
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+- ~~Instantly makes you into a japanophile~~
+- Your usual metronome
+- Trainer with timer
+- Practice journal, to record your results and set objectives
+- Completely personal
 
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## Important notes
+- For now will probably just store results and user data in localStorage, could probably provide a way to download the data (.json comes to mind) and restore it if localStorage gets erased.
