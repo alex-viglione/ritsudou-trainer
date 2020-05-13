@@ -2,25 +2,31 @@
 	<div>
 		<h1>Sound test</h1>
 		<nuxt-link to="/">Back to home</nuxt-link>
-		<button @click.prevent="playSound('../../assets/metronome.wav')">Play sound</button>
-		<audio
-			id="audio"
-			:src="require('@/assets/metronome.wav')"
-			controls
-			autostart="false"
-		></audio>
+		<input
+			type="button"
+			value="PLAY"
+			@click="play()"
+		>
 	</div>
 </template>
 
 <script>
 export default {
-	methods: {
-		playSound(sound) {
-			if (sound) {
-				let audio = new Audio(sound);
-				audio.play();
-			}
+	data() {
+		return {
+			audio: ''
 		}
+	},
+	methods: {
+		play() {
+			// this.audio.play();
+			setInterval(() => {
+				this.audio.play();
+			}, 10);
+		}
+	},
+	mounted() {
+		this.audio = new Audio(require('@/assets/metronome.wav'))
 	}
 }
 </script>
