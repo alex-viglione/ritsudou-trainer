@@ -1,9 +1,8 @@
 <template>
 	<div>
-		<div id="wrapper">
-			<h1>Metronome</h1>
-			<nuxt-link to="/">Back to home</nuxt-link>
-			<label for="bpm">BPM</label>
+		<div id="metro_comp">
+			<h3>Metronome</h3>
+			<label for="bpm">BPM:</label>
 			<input
 				type="text"
 				v-model="bpm"
@@ -11,7 +10,7 @@
 				@blur="limitbpm"
 			>
 			<p>Millisecond gap : {{toMs}}</p>
-			<label for="bpb">BPB</label>
+			<label for="bpb">1/4 notes per measure:</label>
 			<input
 				type="text"
 				v-model="bpb"

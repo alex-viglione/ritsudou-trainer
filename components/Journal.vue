@@ -1,8 +1,7 @@
 <template>
 	<div>
-		<div id="wrapper">
-			<h1>Journal</h1>
-			<nuxt-link to="/">To Home</nuxt-link>
+		<div id="journal">
+			<h3>Journal</h3>
 			<div class="journal_page">
 				<label for="Date">DATE:</label>
 				<input

@@ -1,6 +1,6 @@
 # 律動 ritsudou-trainer
 
-> A simple rhythm trainer &amp; more. <br>
+> A simple rhythm trainer &amp; practice journal. <br>
 > Made it mostly because I wanted a simple app to practice with, instead of using pen and paper. How _modern_.
 
 

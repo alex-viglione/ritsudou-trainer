@@ -1,23 +1,130 @@
 <template>
 	<div class="container">
-		<div>
+		<div id="wrapper">
 			<h1 class="title">
-				ritsudou-trainer
+				律動 Trainer
 			</h1>
 			<h2 class="subtitle">
-				A simple rhythm trainer &amp; more
+				A simple rhythm trainer &amp; practice journal
 			</h2>
-			<nuxt-link to="/Metronome">Metronome</nuxt-link>
-			<nuxt-link to="/Journal">Journal</nuxt-link>
+
+			<nav id="nav">
+				<a
+					@click="useMetronome = !useMetronome"
+					class="link"
+				>
+					<h3>Metronome</h3>
+				</a>
+
+				<nuxt-link
+					class="link"
+					to="/Timer"
+				>
+					<h3>Timer</h3>
+				</nuxt-link>
+
+				<a
+					@click="useJournal = !useJournal"
+					class="link"
+				>
+					<h3>Journal</h3>
+				</a>
+
+				<a
+					@click="showInfo = !showInfo"
+					class="link"
+				>
+					<h3>Info</h3>
+				</a>
+			</nav>
+
+			<InfoBox
+				class="component"
+				v-if="showInfo"
+			/>
+			<Metronome
+				class="component"
+				v-if="useMetronome"
+			/>
+			<Journal
+				class="component"
+				v-show="useJournal"
+			/>
 		</div>
 	</div>
 	</div>
 </template>
 
+<script>
+import InfoBox from '@/components/InfoBox';
+import Metronome from '@/components/Metronome';
+import Journal from '@/components/Journal';
+
+export default {
+	components: {
+		InfoBox,
+		Metronome,
+		Journal
+	},
+	data() {
+		return {
+			useMetronome: false,
+			useJournal: false,
+			showInfo: false
+		}
+	}
+}
+</script>
+
 <style>
 .container {
 	margin: 0 auto;
+	padding: 2% 0;
 	min-height: 100vh;
-	background-color: lightblue;
+	background: url("https://images.pexels.com/photos/161150/kiyomizu-dera-temple-kyoto-japan-161150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+}
+
+.subtitle {
+	width: 90%;
+	text-align: center;
+}
+
+#nav {
+	margin: 1em 0;
+	display: flex;
+	flex-wrap: wrap;
+	width: 90%;
+	justify-content: space-around;
+}
+
+.link {
+	width: 45%;
+	text-align: center;
+	text-decoration: none;
+	/* color: #2de128; */
+	color: #111;
+	border: 1px solid #2de128;
+	padding: 0.5em;
+	margin: 5px 0;
+	cursor: pointer;
+}
+
+.link:hover {
+	background-color: rgba(45, 225, 40, 0.3);
+	color: #000;
+}
+
+.component {
+	width: 90%;
+}
+
+@media (min-width: 768px) {
+	#nav {
+		flex-wrap: no-wrap;
+	}
+
+	.link {
+		width: 22%;
+	}
 }
 </style>

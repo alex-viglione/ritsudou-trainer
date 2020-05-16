@@ -26,7 +26,12 @@ html {
 
 #wrapper {
 	display: flex;
+	width: 80%;
+	margin: auto;
+	padding: 0.75em 0;
 	flex-direction: column;
 	align-items: center;
+	background-color: rgba(34, 34, 34, 0.7);
+	color: #ccc;
 }
 </style>
