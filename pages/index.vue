@@ -7,7 +7,8 @@
 			<h2 class="subtitle">
 				A simple rhythm trainer &amp; more
 			</h2>
-			<nuxt-link to="/sound_test">To sound test</nuxt-link>
+			<nuxt-link to="/Metronome">Metronome</nuxt-link>
+			<nuxt-link to="/Journal">Journal</nuxt-link>
 		</div>
 	</div>
 	</div>

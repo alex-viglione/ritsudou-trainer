@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div id="wrapper">
-			<h1>Sound test</h1>
+			<h1>Metronome</h1>
 			<nuxt-link to="/">Back to home</nuxt-link>
 			<label for="bpm">BPM</label>
 			<input
@@ -82,11 +82,3 @@ export default {
 	}
 }
 </script>
-
-<style scoped>
-#wrapper {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-</style>

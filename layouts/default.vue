@@ -23,4 +23,10 @@ html {
 	box-sizing: border-box;
 	margin: 0;
 }
+
+#wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 </style>
