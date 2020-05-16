@@ -8,6 +8,7 @@
 				type="text"
 				v-model="bpm"
 				name="bpm"
+				@blur="limitbpm"
 			>
 			<p>Millisecond gap : {{toMs}}</p>
 			<label for="bpb">BPB</label>
@@ -15,6 +16,7 @@
 				type="text"
 				v-model="bpb"
 				name="bpb"
+				@blur="limitbpb"
 			>
 			<input
 				type="button"
@@ -48,6 +50,9 @@ export default {
 	},
 	methods: {
 		play() {
+			if (this.isPlaying) {
+				this.isPlaying = false;
+			}
 			let millisecs = this.toMs;
 			let bpb = this.bpb;
 			let counter = 0;
@@ -74,6 +79,20 @@ export default {
 		pause(interval) {
 			this.isPlaying = false;
 			clearInterval(interval);
+		},
+		limitbpm() {
+			if (this.bpm < 30) {
+				this.bpm = 30;
+			} else if (this.bpm > 240) {
+				this.bpm = 240;
+			}
+		},
+		limitbpb() {
+			if (this.bpb < 1) {
+				this.bpb = 1;
+			} else if (this.bpb > 12) {
+				this.bpb = 12;
+			}
 		}
 	},
 	mounted() {
