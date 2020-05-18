@@ -16,6 +16,7 @@
 					type="text"
 					v-model="seconds"
 					class="text_input"
+					@blur="seconds > 59 ? seconds = 0 : seconds"
 				> seconds
 			</div>
 
@@ -37,12 +38,16 @@ export default {
 	methods: {
 		countdown() {
 			this.isCounting = true;
-			if (this.seconds > 0) {
+			if (this.seconds > 0 || this.minutes > 0) {
 				setTimeout(() => {
 					if (!this.isCounting) {
 						return;
 					} else {
 						this.seconds -= 1;
+						if (this.seconds < 0) {
+							this.seconds = 59;
+							this.minutes--;
+						}
 						this.countdown();
 					}
 				}, 1000);
@@ -51,12 +56,14 @@ export default {
 	},
 	watch: {
 		seconds: function () {
-			if (this.seconds === 0 && this.minutes > 0) {
+			if (this.seconds === 0 && this.minutes > 0 && this.isCounting) {
 				setTimeout(() => {
-					this.minutes--;
 					this.seconds = 59;
 					this.countdown();
 				}, 1000)
+			}
+			if (this.seconds < 10) {
+				this.seconds = `0${this.seconds}`
 			}
 		}
 	}
