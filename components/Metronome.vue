@@ -2,31 +2,37 @@
 	<div>
 		<div id="metro_comp">
 			<h3>Metronome</h3>
-			<label for="bpm">BPM:</label>
-			<input
-				type="text"
-				v-model="bpm"
-				name="bpm"
-				@blur="limitbpm"
-			>
-			<p>Millisecond gap : {{toMs}}</p>
-			<label for="bpb">1/4 notes per measure:</label>
-			<input
-				type="text"
-				v-model="bpb"
-				name="bpb"
-				@blur="limitbpb"
-			>
-			<input
-				type="button"
-				value="PLAY"
-				@click="play"
-			>
-			<input
-				type="button"
-				value="PAUSE"
-				@click="pause"
-			>
+			<div class="unit_input">
+				<input
+					type="number"
+					v-model="bpm"
+					name="bpm"
+					@blur="limitbpm"
+					class="num_input"
+				>
+				<label for="bpm">BPM</label>
+			</div>
+
+			<div class="unit_input">
+				<input
+					type="number"
+					v-model="bpb"
+					name="bpb"
+					@blur="limitbpb"
+					class="num_input"
+				>
+				<label for="
+				bpb">divisions</label>
+			</div>
+
+			<div class="buttons">
+				<button @click="play">
+					<h4>Start</h4>
+				</button>
+				<button @click="pause">
+					<h4>Stop</h4>
+				</button>
+			</div>
 		</div>
 	</div>
 </template>
@@ -100,3 +106,12 @@ export default {
 	}
 }
 </script>
+
+<style scoped>
+#metro_comp {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+</style>

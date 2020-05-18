@@ -3,25 +3,44 @@
 		<div id="timer_comp">
 			<h3>Timer</h3>
 
-			<div class="time_input">
+			<div
+				class="unit_input"
+				v-if="!isCounting"
+			>
 				<input
-					type="text"
+					type="number"
 					v-model="minutes"
-					class="text_input"
+					class="num_input"
 				> minutes
 			</div>
 
-			<div class="time_input">
+			<div
+				class="unit_input"
+				v-if="!isCounting"
+			>
 				<input
-					type="text"
+					type="number"
 					v-model="seconds"
-					class="text_input"
+					class="num_input"
 					@blur="seconds > 59 ? seconds = 0 : seconds"
 				> seconds
 			</div>
 
-			<button @click="countdown">Start countdown</button>
-			<button @click="isCounting = false">Pause countdown</button>
+			<div
+				class="time_disp"
+				v-if="isCounting"
+			>
+				{{minutes_str}} : {{seconds_str}}
+			</div>
+
+			<div class="buttons">
+				<button @click="countdown">
+					<h4>Start countdown</h4>
+				</button>
+				<button @click="isCounting = false">
+					<h4>Pause countdown</h4>
+				</button>
+			</div>
 		</div>
 	</div>
 </template>
@@ -33,6 +52,14 @@ export default {
 			seconds: 5,
 			minutes: 1,
 			isCounting: false
+		}
+	},
+	computed: {
+		seconds_str() {
+			return this.seconds < 10 ? `0${this.seconds}` : this.seconds;
+		},
+		minutes_str() {
+			return this.minutes < 10 ? `0${this.minutes}` : this.minutes
 		}
 	},
 	methods: {
@@ -62,9 +89,6 @@ export default {
 					this.countdown();
 				}, 1000)
 			}
-			if (this.seconds < 10) {
-				this.seconds = `0${this.seconds}`
-			}
 		}
 	}
 }
@@ -73,20 +97,12 @@ export default {
 <style scoped>
 #timer_comp {
 	display: flex;
-	height: 100px;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
 }
 
-.time_input {
-	display: flex;
-	align-items: center;
-}
-
-.text_input {
-	width: 30%;
-	margin-left: 20%;
-	margin-right: 5%;
+.time_disp {
+	margin: 1em 0;
 }
 </style>

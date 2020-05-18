@@ -38,22 +38,28 @@
 				</a>
 			</nav>
 
-			<InfoBox
-				class="component"
-				v-if="showInfo"
-			/>
-			<Metronome
-				class="component"
-				v-if="useMetronome"
-			/>
-			<Timer
-				class="component"
-				v-if="useTimer"
-			/>
-			<Journal
-				class="component"
-				v-show="useJournal"
-			/>
+			<div class="comp_box">
+				<Metronome
+					class="component"
+					v-if="useMetronome"
+				/>
+				<Timer
+					class="component"
+					v-if="useTimer"
+				/>
+
+			</div>
+
+			<div class="comp_box">
+				<Journal
+					class="component"
+					v-show="useJournal"
+				/>
+				<InfoBox
+					class="component"
+					v-if="showInfo"
+				/>
+			</div>
 		</div>
 	</div>
 	</div>
@@ -89,6 +95,7 @@ export default {
 	padding: 2% 0;
 	min-height: 100vh;
 	background: url("https://images.pexels.com/photos/161150/kiyomizu-dera-temple-kyoto-japan-161150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+	background-attachment: fixed;
 }
 
 .subtitle {
@@ -108,21 +115,26 @@ export default {
 	width: 45%;
 	text-align: center;
 	text-decoration: none;
-	/* color: #2de128; */
-	color: #111;
 	border: 1px solid #2de128;
 	padding: 0.5em;
 	margin: 5px 0;
 	cursor: pointer;
+	background: rgba(34, 34, 34, 0.7);
+	color: #2de128;
 }
 
 .link:hover {
 	background-color: rgba(45, 225, 40, 0.3);
-	color: #000;
+	color: black;
 }
 
 .component {
 	width: 90%;
+	margin: 1em auto;
+}
+
+.comp_box {
+	width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -132,6 +144,16 @@ export default {
 
 	.link {
 		width: 22%;
+	}
+
+	.comp_box {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+	}
+
+	.component {
+		width: 45%;
 	}
 }
 </style>

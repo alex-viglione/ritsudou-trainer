@@ -31,7 +31,52 @@ html {
 	padding: 0.75em 0;
 	flex-direction: column;
 	align-items: center;
-	background-color: rgba(34, 34, 34, 0.7);
+	background-color: rgba(34, 34, 34, 0.8);
 	color: #ccc;
+}
+
+button {
+	background: rgba(34, 34, 34, 0.7);
+	border: 1px solid #2de128;
+	padding: 0.5em;
+	cursor: pointer;
+	color: #2de128;
+}
+
+button:hover {
+	background-color: rgba(45, 225, 40, 0.3);
+	color: black;
+}
+
+.unit_input {
+	display: flex;
+	margin: auto;
+	border-bottom: 1px solid #2de128;
+	width: 120px;
+	background: rgba(34, 34, 34, 0.7);
+	padding: 3px 5px;
+}
+
+.num_input {
+	background: none;
+	border: none;
+	width: 2em;
+	text-align: center;
+	margin-right: 1em;
+	color: #2de128;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+.buttons {
+	margin: 1em 0;
 }
 </style>
