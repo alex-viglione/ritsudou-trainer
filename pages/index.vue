@@ -16,12 +16,12 @@
 					<h3>Metronome</h3>
 				</a>
 
-				<nuxt-link
+				<a
+					@click="useTimer = !useTimer"
 					class="link"
-					to="/Timer"
 				>
 					<h3>Timer</h3>
-				</nuxt-link>
+				</a>
 
 				<a
 					@click="useJournal = !useJournal"
@@ -46,6 +46,10 @@
 				class="component"
 				v-if="useMetronome"
 			/>
+			<Timer
+				class="component"
+				v-if="useTimer"
+			/>
 			<Journal
 				class="component"
 				v-show="useJournal"
@@ -59,18 +63,21 @@
 import InfoBox from '@/components/InfoBox';
 import Metronome from '@/components/Metronome';
 import Journal from '@/components/Journal';
+import Timer from '@/components/Timer';
 
 export default {
 	components: {
 		InfoBox,
 		Metronome,
-		Journal
+		Journal,
+		Timer
 	},
 	data() {
 		return {
 			useMetronome: false,
 			useJournal: false,
-			showInfo: false
+			showInfo: false,
+			useTimer: false
 		}
 	}
 }
