@@ -12,3 +12,4 @@
 ## Fixes
 - ~~Limit bpm between 30 and 240~~
 - ~~Metronome : toggle between play and pause~~
+- Use file loader function to initialise the counter and limit it

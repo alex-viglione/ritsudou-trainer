@@ -17,7 +17,26 @@
 					rows="10"
 					v-model="newText"
 				></textarea>
-				<button @click="saveEntry(newDate, newText)">Save entry</button>
+
+				<button @click="saveEntry(newDate, newText)">
+					<h4>Save entry</h4>
+				</button>
+
+				<button>
+					<input
+						id="fileInput"
+						type="file"
+						name="file"
+						v-show="false"
+					/>
+					<label
+						for="fileInput"
+						class="file_input_label"
+					>
+						<h4>Submit user data</h4>
+					</label>
+				</button>
+
 				<p>{{journalEntries}}</p>
 			</div>
 		</div>
@@ -39,7 +58,7 @@ export default {
 			newEntry.date = date;
 			newEntry.text = text;
 			this.journalEntries.push(newEntry);
-		}
+		},
 	}
 }
 </script>
@@ -48,5 +67,9 @@ export default {
 .journal_page {
 	display: flex;
 	flex-direction: column;
+}
+
+.file_input_label {
+	cursor: pointer;
 }
 </style>
