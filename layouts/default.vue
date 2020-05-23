@@ -41,6 +41,7 @@ button {
 	padding: 0.5em;
 	cursor: pointer;
 	color: #2de128;
+	font-weight: bold;
 }
 
 button:hover {

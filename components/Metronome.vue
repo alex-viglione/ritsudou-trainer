@@ -27,10 +27,10 @@
 
 			<div class="buttons">
 				<button @click="play">
-					<h4>Start</h4>
+					Start
 				</button>
 				<button @click="pause">
-					<h4>Stop</h4>
+					Stop
 				</button>
 			</div>
 		</div>

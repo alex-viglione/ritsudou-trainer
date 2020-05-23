@@ -35,10 +35,10 @@
 
 			<div class="buttons">
 				<button @click="countdown">
-					<h4>Start countdown</h4>
+					Start countdown
 				</button>
 				<button @click="isCounting = false">
-					<h4>Pause countdown</h4>
+					Pause countdown
 				</button>
 			</div>
 		</div>
