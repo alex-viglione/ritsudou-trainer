@@ -28,7 +28,7 @@ html {
 	display: flex;
 	width: 80%;
 	margin: auto;
-	padding: 0.75em 0;
+	padding: 0.75em;
 	flex-direction: column;
 	align-items: center;
 	background-color: rgba(34, 34, 34, 0.8);

@@ -153,7 +153,7 @@ export default {
 	}
 
 	.component {
-		width: 45%;
+		width: 49%;
 	}
 }
 </style>

@@ -10,18 +10,18 @@
 					:key="el.id"
 					v-show="el.id === counter"
 				>
-					<p>Date: {{el.day}} {{el.month}} {{el.year}}</p>
+					<p id="date">{{el.day}} {{el.month}} {{el.year}}</p>
 					<pre class="text_display">{{el.text}}</pre>
-					<button @click="decreaseCounter">Previous page</button>
-					<button @click="increaseCounter">Next page</button>
+					<div class="log_btns">
+						<button @click="decreaseCounter">Previous page</button>
+						<button @click="increaseCounter">Next page</button>
+					</div>
 				</div>
 			</div>
 
 			<!-- ===== New entry ===== -->
 			<div class="journal_new_entry">
 				<h4>New entry:</h4>
-				<label for="Date">DATE:</label>
-				<label for="placeholder">PLACEHOLDER:</label>
 				<textarea
 					name="placeholder"
 					id=""
@@ -31,33 +31,42 @@
 					class="text_insert"
 				></textarea>
 
-				<button @click="saveEntry(newText, id)">
-					Save entry
-				</button>
-
-				<vue-blob-json-csv
-					tag-name="button"
-					file-type="json"
-					file-name="practice_journal"
-					title="Download your data"
-					:data="journalEntries"
-				/>
-
-				<button>
-					<input
-						id="fileInput"
-						type="file"
-						name="file"
-						v-show="false"
-						@change="loadFromFile"
-					/>
-					<label
-						for="fileInput"
-						class="file_input_label"
+				<div class="jrn_btns">
+					<button
+						class="jrn_btn"
+						@click="saveEntry(newText, id)"
 					>
-						Submit user data
-					</label>
-				</button>
+						Save entry
+					</button>
+
+					<vue-blob-json-csv
+						tag-name="button"
+						class="jrn_btn"
+						file-type="json"
+						file-name="practice_journal"
+						title="Download your data"
+						:data="journalEntries"
+					/>
+
+					<button
+						id="file_inp_btn"
+						class="jrn_btn"
+					>
+						<input
+							id="fileInput"
+							type="file"
+							name="file"
+							v-show="false"
+							@change="loadFromFile"
+						/>
+						<label
+							for="fileInput"
+							class="file_input_label"
+						>
+							Submit user data
+						</label>
+					</button>
+				</div>
 
 			</div>
 		</div>
@@ -132,13 +141,60 @@ export default {
 
 .file_input_label {
 	cursor: pointer;
+	display: block;
+	padding: 0.5em;
 }
 
 .text_insert {
 	white-space: pre-wrap;
+	margin: 0.5em 0;
+	background-color: black;
+	color: white;
+	border: 1px solid #2de128;
+	resize: none;
+	background-color: rgba(34, 34, 34, 0.8);
+}
+
+.text_display {
+	white-space: pre-wrap;
+	font-style: italic;
+	border: 1px solid #2de128;
+	background-color: rgba(255, 255, 255, 0.3);
+	color: black;
+	padding: 0.5em;
+}
+
+#file_inp_btn {
+	padding: 0;
 }
 
 /* .text_display {
 	white-space: initial;
 } */
+
+.journal_view_entries {
+	margin-top: 0.5em;
+	margin-bottom: 1em;
+}
+
+.jrn_btns {
+	display: flex;
+	flex-direction: column;
+}
+
+.jrn_btn {
+	margin: 0.2em 0;
+}
+
+#date {
+	font-weight: bold;
+	margin-top: 0.2em;
+	color: #2de128;
+}
+
+.log_btns {
+	margin-top: 0.5em;
+	display: flex;
+	justify-content: space-between;
+}
 </style>
