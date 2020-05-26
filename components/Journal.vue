@@ -5,17 +5,22 @@
 			<!-- ===== View entries ===== -->
 			<div class="journal_view_entries">
 				<h4>Your logs:</h4>
-				<div
-					v-for="el in journalEntries"
-					:key="el.id"
-					v-show="el.id === counter"
-				>
-					<p id="date">{{el.day}} {{el.month}} {{el.year}}</p>
-					<pre class="text_display">{{el.text}}</pre>
-					<div class="log_btns">
-						<button @click="decreaseCounter">Previous page</button>
-						<button @click="increaseCounter">Next page</button>
+				<transition-group name="slide">
+					<div
+						v-for="el in journalEntries"
+						:key="el.id"
+						v-show="el.id === counter"
+					>
+						<p id="date">{{el.day}} {{el.month}} {{el.year}}</p>
+						<pre class="text_display">{{el.text}}</pre>
 					</div>
+				</transition-group>
+				<div
+					class="log_btns"
+					v-if="journalEntries.length > 1"
+				>
+					<button @click="decreaseCounter">Previous page</button>
+					<button @click="increaseCounter">Next page</button>
 				</div>
 			</div>
 
@@ -111,7 +116,10 @@ export default {
 			reader.onload = e => {
 				const submittedFile = e.target.result;
 				const parsed = JSON.parse(submittedFile);
-				parsed.forEach(el => this.journalEntries.push(el))
+				parsed.forEach(el => {
+					this.journalEntries.push(el);
+					this.id++;
+				})
 			};
 			reader.readAsText(file);
 		},
@@ -196,5 +204,24 @@ export default {
 	margin-top: 0.5em;
 	display: flex;
 	justify-content: space-between;
+}
+
+.slide-enter-active {
+	animation: slide-in 0.5s forwards;
+	/* transition: opacity 1.5s; */
+}
+
+.slide-leave {
+	display: none;
+}
+
+@keyframes slide-in {
+	from {
+		transform: translateX(50px);
+	}
+
+	to {
+		transform: translateX(0);
+	}
 }
 </style>

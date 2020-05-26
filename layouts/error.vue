@@ -9,10 +9,10 @@
 			</h2>
 
 			<p>
-				Back to -> <nuxt-link
+				Back to -> <a
 					class="redirect"
-					to="/"
-				>the jam zone</nuxt-link>
+					href="/"
+				>the jam zone</a>
 			</p>
 
 		</div>
