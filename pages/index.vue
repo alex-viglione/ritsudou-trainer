@@ -12,6 +12,7 @@
 				<a
 					@click="useMetronome = !useMetronome"
 					class="link"
+					:class="{'active':(useMetronome)}"
 				>
 					<h3>Metronome</h3>
 				</a>
@@ -19,6 +20,7 @@
 				<a
 					@click="useTimer = !useTimer"
 					class="link"
+					:class="{'active':(useTimer)}"
 				>
 					<h3>Timer</h3>
 				</a>
@@ -26,6 +28,7 @@
 				<a
 					@click="useJournal = !useJournal"
 					class="link"
+					:class="{'active':(useJournal)}"
 				>
 					<h3>Journal</h3>
 				</a>
@@ -33,6 +36,7 @@
 				<a
 					@click="showInfo = !showInfo"
 					class="link"
+					:class="{'active':(showInfo)}"
 				>
 					<h3>Info</h3>
 				</a>
@@ -135,6 +139,11 @@ export default {
 
 .comp_box {
 	width: 100%;
+}
+
+.active {
+	background-color: #2de128;
+	color: black;
 }
 
 @media (min-width: 768px) {

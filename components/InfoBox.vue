@@ -40,8 +40,13 @@ a {
 	font-weight: bold;
 }
 
+a:visited {
+	color: #299825;
+}
+
 a:hover {
 	border-bottom: 1px solid #2de128;
+	color: #2de128;
 }
 
 p {

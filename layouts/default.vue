@@ -42,10 +42,16 @@ button {
 	cursor: pointer;
 	color: #2de128;
 	font-weight: bold;
+	outline: none;
 }
 
 button:hover {
 	background-color: rgba(45, 225, 40, 0.3);
+	color: black;
+}
+
+button:active {
+	background-color: #2de128;
 	color: black;
 }
 
@@ -65,6 +71,7 @@ button:hover {
 	text-align: center;
 	margin-right: 1em;
 	color: #2de128;
+	outline: none;
 }
 
 input::-webkit-outer-spin-button,

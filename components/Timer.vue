@@ -34,7 +34,10 @@
 			</div>
 
 			<div class="buttons">
-				<button @click="countdown">
+				<button
+					@click="countdown"
+					:class="{'active':(isCounting)}"
+				>
 					Start countdown
 				</button>
 				<button @click="isCounting = false">
@@ -104,5 +107,10 @@ export default {
 
 .time_disp {
 	margin: 1em 0;
+}
+
+.active {
+	background-color: #2de128;
+	color: black;
 }
 </style>

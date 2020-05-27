@@ -26,7 +26,10 @@
 			</div>
 
 			<div class="buttons">
-				<button @click="play">
+				<button
+					@click="play"
+					:class="{'active':(isPlaying)}"
+				>
 					Start
 				</button>
 				<button @click="pause">
