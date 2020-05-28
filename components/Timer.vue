@@ -62,10 +62,10 @@
 					@click="countdown"
 					:class="{'active':(isCounting)}"
 				>
-					Start countdown
+					Start
 				</button>
 				<button @click="isCounting = false">
-					Pause countdown
+					Pause
 				</button>
 			</div>
 		</div>
@@ -145,6 +145,6 @@ export default {
 }
 
 .buttons button {
-	width: 155px;
+	width: 100px;
 }
 </style>

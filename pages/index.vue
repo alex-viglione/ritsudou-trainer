@@ -151,9 +151,17 @@ export default {
 	color: black;
 }
 
+#nav h3 {
+	font-size: 1em;
+}
+
 @media (min-width: 768px) {
 	#nav {
 		flex-wrap: no-wrap;
+	}
+
+	#nav h3 {
+		font-size: 1.2em;
 	}
 
 	.link {

@@ -46,7 +46,7 @@
 					class="plus_minus"
 					v-show="!isPlaying"
 					@click="bpb++; limitbpb()"
-				>-</button>
+				>+</button>
 			</div>
 
 			<div class="buttons">
@@ -143,6 +143,6 @@ export default {
 }
 
 .buttons button {
-	width: 55px;
+	width: 100px;
 }
 </style>
