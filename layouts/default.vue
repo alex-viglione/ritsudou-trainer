@@ -43,6 +43,7 @@ button {
 	color: #2de128;
 	font-weight: bold;
 	outline: none;
+	font-size: 1em;
 }
 
 button:hover {
@@ -59,9 +60,11 @@ button:active {
 	display: flex;
 	margin: auto;
 	border-bottom: 1px solid #2de128;
-	width: 120px;
+	width: 170px;
 	background: rgba(34, 34, 34, 0.7);
 	padding: 3px 5px;
+	font-size: 1.2em;
+	align-items: center;
 }
 
 .num_input {
@@ -72,6 +75,7 @@ button:active {
 	margin-right: 1em;
 	color: #2de128;
 	outline: none;
+	font-size: 1.2em;
 }
 
 input::-webkit-outer-spin-button,
@@ -86,5 +90,17 @@ input[type="number"] {
 
 .buttons {
 	margin: 1em 0;
+}
+
+.btns_inp {
+	display: flex;
+	margin: 0.5em 0;
+}
+
+.plus_minus {
+	margin: 0 0.5em;
+	width: 2.2em;
+	font-weight: bold;
+	font-size: 1.2em;
 }
 </style>

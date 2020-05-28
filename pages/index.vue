@@ -141,7 +141,8 @@ export default {
 	width: 100%;
 }
 
-.active {
+.active,
+.active:hover {
 	background-color: #2de128;
 	color: black;
 }

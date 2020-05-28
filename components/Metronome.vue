@@ -2,27 +2,47 @@
 	<div>
 		<div id="metro_comp">
 			<h3>Metronome</h3>
-			<div class="unit_input">
-				<input
-					type="number"
-					v-model="bpm"
-					name="bpm"
-					@blur="limitbpm"
-					class="num_input"
-				>
-				<label for="bpm">BPM</label>
+			<div class="btns_inp">
+				<button
+					class="plus_minus"
+					@click="bpm--; limitbpm()"
+				>-</button>
+				<div class="unit_input">
+					<input
+						type="number"
+						v-model="bpm"
+						name="bpm"
+						@blur="limitbpm"
+						class="num_input"
+					>
+					<label for="bpm">BPM</label>
+				</div>
+				<button
+					class="plus_minus"
+					@click="bpm++; limitbpm()"
+				>+</button>
 			</div>
 
-			<div class="unit_input">
-				<input
-					type="number"
-					v-model="bpb"
-					name="bpb"
-					@blur="limitbpb"
-					class="num_input"
-				>
-				<label for="
+			<div class="btns_inp">
+				<button
+					class="plus_minus"
+					@click="bpb--; limitbpb()"
+				>-</button>
+				<div class="unit_input">
+					<input
+						type="number"
+						v-model="bpb"
+						name="bpb"
+						@blur="limitbpb"
+						class="num_input"
+					>
+					<label for="
 				bpb">divisions</label>
+				</div>
+				<button
+					class="plus_minus"
+					@click="bpb++; limitbpb()"
+				>-</button>
 			</div>
 
 			<div class="buttons">

@@ -4,26 +4,47 @@
 			<h3>Timer</h3>
 
 			<div
-				class="unit_input"
+				class="btns_inp"
 				v-if="!isCounting"
 			>
-				<input
-					type="number"
-					v-model="minutes"
-					class="num_input"
-				> minutes
+				<button
+					class="plus_minus"
+					@click="minutes >= 1 ? minutes-- : minutes"
+				>-</button>
+				<div class="unit_input">
+					<input
+						type="number"
+						v-model="minutes"
+						class="num_input"
+						@blur="minutes < 0 ? minutes = 0 : minutes"
+					> minutes
+				</div>
+				<button
+					class="plus_minus"
+					@click="minutes++"
+				>+</button>
 			</div>
 
-			<div
-				class="unit_input"
-				v-if="!isCounting"
-			>
-				<input
-					type="number"
-					v-model="seconds"
-					class="num_input"
-					@blur="seconds > 59 ? seconds = 0 : seconds"
-				> seconds
+			<div class="btns_inp">
+				<button
+					class="plus_minus"
+					@click="seconds--; handleSeconds()"
+				>-</button>
+				<div
+					class="unit_input"
+					v-if="!isCounting"
+				>
+					<input
+						type="number"
+						v-model="seconds"
+						class="num_input"
+						@blur="seconds > 59 ? seconds = 0 : seconds"
+					> seconds
+				</div>
+				<button
+					class="plus_minus"
+					@click="seconds++; handleSeconds()"
+				>+</button>
 			</div>
 
 			<div
@@ -81,6 +102,17 @@ export default {
 						this.countdown();
 					}
 				}, 1000);
+			}
+		},
+		handleSeconds() {
+			if (this.seconds < 0 && this.minutes > 0) {
+				this.seconds = 59;
+				this.minutes--;
+			} else if (this.seconds < 0 && this.minutes === 0) {
+				this.seconds = 0;
+			} else if (this.seconds > 59) {
+				this.seconds = 0;
+				this.minutes++;
 			}
 		}
 	},
