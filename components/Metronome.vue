@@ -141,4 +141,8 @@ export default {
 	align-items: center;
 	justify-content: space-between;
 }
+
+.buttons button {
+	width: 55px;
+}
 </style>

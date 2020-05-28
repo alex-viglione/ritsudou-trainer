@@ -20,6 +20,7 @@
 					v-if="journalEntries.length > 1"
 				>
 					<button @click="decreaseCounter">Previous page</button>
+					<p>Page {{counter}} / {{journalEntries.length}}</p>
 					<button @click="increaseCounter">Next page</button>
 				</div>
 			</div>
@@ -107,6 +108,7 @@ export default {
 
 			this.newTest = '';
 			this.id++;
+			this.counter = this.journalEntries.length;
 		},
 		loadFromFile(ev) {
 			this.journalEntries = [];
@@ -119,6 +121,7 @@ export default {
 				parsed.forEach(el => {
 					this.journalEntries.push(el);
 					this.id++;
+					this.counter = this.journalEntries.length;
 				})
 			};
 			reader.readAsText(file);
@@ -161,6 +164,7 @@ export default {
 	border: 1px solid #2de128;
 	resize: none;
 	background-color: rgba(34, 34, 34, 0.8);
+	outline: none;
 }
 
 .text_display {
@@ -204,6 +208,11 @@ export default {
 	margin-top: 0.5em;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
+}
+
+.log_btns button {
+	width: 130px;
 }
 
 .slide-enter-active {

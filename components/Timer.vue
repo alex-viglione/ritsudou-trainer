@@ -146,4 +146,8 @@ export default {
 	background-color: #2de128;
 	color: black;
 }
+
+.buttons button {
+	width: 155px;
+}
 </style>
