@@ -9,6 +9,9 @@
 		<p>Nevertheless, I hope you'll have fun and I'd like to thank you for checking this little app out. If you wish to contact me about bugs or any other reason, you can reach me at: <a href="mailto:alexviglione.dev@gmail.com"><b>alexviglione.dev@gmail.com</b></a></p>
 		<p>Or visit <a href="https://alex-viglione.github.io/">my website</a>.</p>
 
+		<h3>Known issues:</h3>
+		<p>> Metronome stutters on some devices (typically laptop and mobile), while running perfectly on others (typically desktop)</p>
+
 		<h3 style="margin-bottom: 0.7em;">How it works</h3>
 		<hr>
 		<p><span class="bold_text">Metronome:</span> Select a bpm, the number of desired divisons in each measure, press "Start" and play along with it, press "Stop" to stop it whenever you want.</p>
