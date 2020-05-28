@@ -100,6 +100,10 @@ export default {
 	min-height: 100vh;
 	background: url("https://images.pexels.com/photos/161150/kiyomizu-dera-temple-kyoto-japan-161150.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 	background-attachment: fixed;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
 }
 
 .subtitle {

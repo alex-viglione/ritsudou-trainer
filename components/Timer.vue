@@ -25,15 +25,15 @@
 				>+</button>
 			</div>
 
-			<div class="btns_inp">
+			<div
+				class="btns_inp"
+				v-if="!isCounting"
+			>
 				<button
 					class="plus_minus"
 					@click="seconds--; handleSeconds()"
 				>-</button>
-				<div
-					class="unit_input"
-					v-if="!isCounting"
-				>
+				<div class="unit_input">
 					<input
 						type="number"
 						v-model="seconds"
@@ -139,6 +139,7 @@ export default {
 
 .time_disp {
 	margin: 1em 0;
+	font-size: 2em;
 }
 
 .active {

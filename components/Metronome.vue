@@ -5,6 +5,7 @@
 			<div class="btns_inp">
 				<button
 					class="plus_minus"
+					v-show="!isPlaying"
 					@click="bpm--; limitbpm()"
 				>-</button>
 				<div class="unit_input">
@@ -19,6 +20,7 @@
 				</div>
 				<button
 					class="plus_minus"
+					v-show="!isPlaying"
 					@click="bpm++; limitbpm()"
 				>+</button>
 			</div>
@@ -26,6 +28,7 @@
 			<div class="btns_inp">
 				<button
 					class="plus_minus"
+					v-show="!isPlaying"
 					@click="bpb--; limitbpb()"
 				>-</button>
 				<div class="unit_input">
@@ -41,6 +44,7 @@
 				</div>
 				<button
 					class="plus_minus"
+					v-show="!isPlaying"
 					@click="bpb++; limitbpb()"
 				>-</button>
 			</div>
