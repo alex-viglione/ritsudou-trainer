@@ -38,7 +38,7 @@
 						type="number"
 						v-model="seconds"
 						class="num_input"
-						@blur="seconds > 59 ? seconds = 0 : seconds"
+						@blur="seconds > 59 ? seconds = 0 : seconds < 0 ? seconds = 0 : seconds"
 					> seconds
 				</div>
 				<button
@@ -54,7 +54,10 @@
 				{{minutes_str}} : {{seconds_str}}
 			</div>
 
-			<div class="buttons">
+			<div
+				class="buttons"
+				v-show="minutes > 0 || seconds > 0"
+			>
 				<button
 					@click="countdown"
 					:class="{'active':(isCounting)}"
@@ -95,9 +98,13 @@ export default {
 						return;
 					} else {
 						this.seconds -= 1;
-						if (this.seconds < 0) {
+						if (this.seconds < 0 && this.minutes > 0) {
 							this.seconds = 59;
 							this.minutes--;
+						}
+						if (this.seconds === 0 && this.minutes === 0) {
+							this.isCounting = false;
+							return;
 						}
 						this.countdown();
 					}
@@ -113,16 +120,6 @@ export default {
 			} else if (this.seconds > 59) {
 				this.seconds = 0;
 				this.minutes++;
-			}
-		}
-	},
-	watch: {
-		seconds: function () {
-			if (this.seconds === 0 && this.minutes > 0 && this.isCounting) {
-				setTimeout(() => {
-					this.seconds = 59;
-					this.countdown();
-				}, 1000)
 			}
 		}
 	}
