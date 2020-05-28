@@ -50,6 +50,9 @@ export default {
   */
   axios: {
   },
+  generate: {
+    fallback: true
+  },
   /*
   ** Build configuration
   */
