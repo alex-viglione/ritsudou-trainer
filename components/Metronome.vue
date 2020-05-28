@@ -91,6 +91,33 @@ export default {
 			const downTick = this.normalTick;
 			const upTick = this.upTick;
 
+			let downCounter = 0;
+			let downTicksArr = [];
+
+			for (let i = 0; i < 10; i++) {
+				downTicksArr.push(downTick.cloneNode());
+			}
+
+			const tick = function () {
+				downCounter = (downCounter + 1) % 10;
+				downTicksArr[downCounter].play();
+				downTicksArr.push(downTick.cloneNode());
+			}
+
+
+			let upCounter = 0;
+			let upTicksArr = [];
+
+			for (let i = 0; i < 10; i++) {
+				upTicksArr.push(upTick.cloneNode());
+			}
+
+			const tickUp = function () {
+				upCounter = (upCounter + 1) % 10;
+				upTicksArr[upCounter].play();
+				upTicksArr.push(upTick.cloneNode());
+			}
+
 			this.isPlaying = true;
 			if (this.isPlaying) {
 				upTick.play();
@@ -99,10 +126,10 @@ export default {
 					if (counter > bpb) {
 						counter = 1;
 					}
-					counter != bpb ? downTick.play() : upTick.play();
+					counter != bpb ? tick() : tickUp();
 					if (!this.isPlaying) {
-						downTick.pause();
-						upTick.pause();
+						downTicksArr[downCounter].pause();
+						upTicksArr[upCounter].pause();
 						this.pause(noteInterval);
 					}
 				}, millisecs);
@@ -115,8 +142,8 @@ export default {
 		limitbpm() {
 			if (this.bpm < 30) {
 				this.bpm = 30;
-			} else if (this.bpm > 240) {
-				this.bpm = 240;
+			} else if (this.bpm > 500) {
+				this.bpm = 500;
 			}
 		},
 		limitbpb() {
