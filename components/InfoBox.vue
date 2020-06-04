@@ -7,10 +7,16 @@
 		<p>As stated, this is a <i>simple</i> webapp, it is not connected to a backend and was mostly made to fulfill my own needs, as well as serve as a learning project. I am aware that some features could have a better implementation, and that the journal can get quite... <i>cumbersome</i> (see below).</p>
 
 		<p>Nevertheless, I hope you'll have fun and I'd like to thank you for checking this little app out. If you wish to contact me about bugs or any other reason, you can reach me at: <a href="mailto:alexviglione.dev@gmail.com"><b>alexviglione.dev@gmail.com</b></a></p>
-		<p>Or visit <a href="https://alex-viglione.github.io/">my website</a>.</p>
+		<p>Or visit <a
+				href="https://alex-viglione.github.io/"
+				target="_blank"
+			>my website</a>.</p>
 
 		<h3>Known issues:</h3>
-		<h5>(If you wish, you can contribute on the <a href="https://github.com/alex-viglione/ritsudou-trainer">Github repo</a>)</h5>
+		<h5>(If you wish, you can contribute on the <a
+				href="https://github.com/alex-viglione/ritsudou-trainer"
+				target="_blank"
+			>Github repo</a>)</h5>
 		<p>> Metronome stutters on some devices (mobile), while running perfectly on others</p>
 
 		<h3 style="margin-bottom: 0.7em;">How it works</h3>
