@@ -10,7 +10,8 @@
 		<p>Or visit <a href="https://alex-viglione.github.io/">my website</a>.</p>
 
 		<h3>Known issues:</h3>
-		<p>> Metronome stutters on some devices (typically laptop and mobile), while running perfectly on others (typically desktop)</p>
+		<h5>(If you wish, you can contribute on the <a href="https://github.com/alex-viglione/ritsudou-trainer">Github repo</a>)</h5>
+		<p>> Metronome stutters on some devices (mobile), while running perfectly on others</p>
 
 		<h3 style="margin-bottom: 0.7em;">How it works</h3>
 		<hr>
