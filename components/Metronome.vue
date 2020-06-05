@@ -52,7 +52,8 @@
 			<div class="buttons">
 				<button
 					@click="play"
-					:class="{'active':(isPlaying)}"
+					:class="{'disabled':(isPlaying)}"
+					:disabled="isPlaying"
 				>
 					Start
 				</button>
@@ -82,9 +83,6 @@ export default {
 	},
 	methods: {
 		play() {
-			if (this.isPlaying) {
-				this.isPlaying = false;
-			}
 			let millisecs = this.toMs;
 			let bpb = this.bpb;
 			let counter = 0;
@@ -116,6 +114,12 @@ export default {
 				upCounter = (upCounter + 1) % 10;
 				upTicksArr[upCounter].play();
 				upTicksArr.push(upTick.cloneNode());
+			}
+
+			if (this.isPlaying) {
+				this.isPlaying = false;
+				downTicksArr = [];
+				upTicksArr = [];
 			}
 
 			this.isPlaying = true;
@@ -156,7 +160,10 @@ export default {
 	},
 	mounted() {
 		this.normalTick = new Audio(require('@/assets/metronome.wav'));
-		this.upTick = new Audio(require('@/assets/metronomeup.wav'))
+		this.upTick = new Audio(require('@/assets/metronomeup.wav'));
+	},
+	beforeDestroy() {
+		this.pause();
 	}
 }
 </script>
@@ -172,4 +179,14 @@ export default {
 .buttons button {
 	width: 100px;
 }
+
+/* .disabled {
+	opacity: 0.3;
+	color: #333;
+}
+
+.disabled:hover {
+	background-color: initial;
+	color: #333;
+} */
 </style>

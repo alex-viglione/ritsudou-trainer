@@ -103,4 +103,14 @@ input[type="number"] {
 	font-weight: bold;
 	font-size: 1.2em;
 }
+
+.disabled {
+	opacity: 0.3;
+	color: #333;
+}
+
+.disabled:hover {
+	background-color: initial;
+	color: #333;
+}
 </style>

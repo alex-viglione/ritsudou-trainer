@@ -60,7 +60,8 @@
 			>
 				<button
 					@click="countdown"
-					:class="{'active':(isCounting)}"
+					:disabled="isCounting"
+					:class="{'disabled':(isCounting)}"
 				>
 					Start
 				</button>
